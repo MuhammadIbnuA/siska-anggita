@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="materi.html">Materi</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <h1>Search</h1>
+        <input type="text" placeholder="Search..." id="searchInput">
+        <h2>Klik salah satu untuk memilih materi</h2>
+        <div class="materi-container">
+            <div class="materi-item" onclick="goToTugas('desain-grafis')">
+                <img src="images/desain_grafis_terbar.png" alt="Desain Grafis">
+                <p>Desain Grafis</p>
+            </div>
+            <div class="materi-item" onclick="goToTugas('pemrograman-dasar')">
+                <img src="images/pemrograman dasar.png" alt="Pemrograman Dasar">
+                <p>Pemrograman Dasar</p>
+            </div>
+            <div class="materi-item" onclick="goToTugas('komputer-dan-jaringan')">
+                <img src="images/komputer dan jaringan.png" alt="Komputer dan Jaringan">
+                <p>Komputer dan Jaringan</p>
+            </div>
+            <div class="materi-item" onclick="goToTugas('simulasi-dan-komunikasi-digital')">
+                <img src="images/simulasi dan komunikasi digital.png" alt="Simulasi dan Komunikasi Digital">
+                <p>Simulasi dan Komunikasi Digital</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 E-Learning. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript untuk pencarian dan navigasi -->
+    <script>
+        function searchMateri() {
+            var input = document.getElementById('searchInput');
+            var filter = input.value.toUpperCase();
+            var materiItems = document.querySelectorAll('.materi-item');
+
+            materiItems.forEach(function(item) {
+                var text = item.textContent || item.innerText;
+                if (text.toUpperCase().indexOf(filter) > -1) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('input', searchMateri);
+
+        function goToTugas(materi) {
+            // Simpan pilihan materi ke sessionStorage
+            sessionStorage.setItem('selectedMateri', materi);
+            // Mengarahkan ke halaman tugas.html dengan parameter materi
+            window.location.href = 'tugas.html?materi=' + materi;
+        }
+    </script>
+</body>
+</html>

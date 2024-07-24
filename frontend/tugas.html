@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="materi.html">Materi</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <h1>Tugas untuk Materi</h1>
+        <div id="materi-content">
+            <!-- Konten materi akan dimuat di sini -->
+        </div>
+        <div>
+            <a href="pengumpulan_tugas.html" class="button">Pengumpulan Tugas</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 E-Learning. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript untuk mengatur konten materi -->
+    <script>
+        // Ambil parameter materi dari URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var materi = urlParams.get('materi');
+
+        // Mengatur judul dan deskripsi berdasarkan materi
+        var judulTugas, deskripsiTugas;
+
+        switch (materi) {
+            case 'desain-grafis':
+                judulTugas = 'Pembuatan Poster Acara Komunitas';
+                deskripsiTugas = 'Anda diminta untuk membuat poster promosi untuk acara komunitas "Seni Budaya Lokal". Poster ini harus menarik perhatian dan mencerminkan keanekaragaman budaya lokal.\n\nPersyaratan:\n- Tema: Keanekaragaman Budaya Lokal\n- Elemen yang Harus Ada: Gambar atau ilustrasi yang mencerminkan kebudayaan lokal, tanggal dan waktu acara, lokasi acara, informasi kontak.\n\nSpesifikasi Teknis:\n- Ukuran: A3 (297mm x 420mm)\n- Format: File JPEG atau PDF\n- Resolusi: Minimum 300 dpi untuk cetakan berkualitas tinggi\n\nBatasan Waktu:\n- Deadline pengumpulan: 10 hari dari tanggal pemberian tugas.\n\nPenilaian:\n- Kreativitas dalam konsep dan desain.\n- Penggunaan warna dan tipografi yang sesuai dan menarik.\n- Kesesuaian dengan tema dan tujuan poster.\n\nCatatan:\nPastikan untuk mematuhi hak cipta dalam penggunaan gambar atau ilustrasi yang digunakan.';
+                break;
+            case 'pemrograman-dasar':
+                judulTugas = 'Penghitungan Rata-rata Nilai Mahasiswa';
+                deskripsiTugas = 'Anda diminta untuk membuat program sederhana untuk menghitung rata-rata nilai mahasiswa berdasarkan nilai yang dimasukkan pengguna.\n\nPersyaratan:\n1. Program harus meminta pengguna untuk memasukkan jumlah mata kuliah yang diambil.\n2. Program kemudian meminta pengguna untuk memasukkan nilai untuk setiap mata kuliah.\n3. Setelah semua nilai dimasukkan, program akan menghitung dan menampilkan rata-rata nilai.\n\nContoh Alur Kerja Program:\n- Pengguna memasukkan jumlah mata kuliah (misalnya, 3).\n- Program meminta pengguna untuk memasukkan nilai untuk mata kuliah pertama, kedua, dan ketiga.\n- Program menghitung rata-rata nilai dari nilai yang dimasukkan pengguna.\n- Program menampilkan rata-rata nilai kepada pengguna.';
+                break;
+            case 'komputer-dan-jaringan':
+                judulTugas = 'Analisis Kinerja Jaringan Komputer';
+                deskripsiTugas = 'Anda diminta untuk melakukan analisis kinerja jaringan komputer berdasarkan studi kasus yang diberikan. Tugas ini bertujuan untuk mengidentifikasi dan mengevaluasi masalah kinerja jaringan serta memberikan rekomendasi untuk perbaikan.\n\nPersyaratan:\n1. Lakukan pemetaan topologi jaringan yang digunakan.\n2. Identifikasi titik-titik bottleneck atau penghambat dalam kinerja jaringan.\n3. Analisis lalu lintas data yang melintasi jaringan.\n4. Evaluasi penggunaan bandwidth dan latency.\n5. Berikan rekomendasi untuk meningkatkan kinerja jaringan berdasarkan temuan analisis.';
+                break;
+            case 'simulasi-dan-komunikasi-digital':
+                judulTugas = 'Pengembangan Model Simulasi Komunikasi Digital';
+                deskripsiTugas = 'Anda diminta untuk mengembangkan model simulasi komunikasi digital menggunakan perangkat lunak simulasi yang tersedia (misalnya, NS-3, OMNeT++, atau yang sejenis). Tugas ini bertujuan untuk mensimulasikan protokol komunikasi dan mengukur kinerjanya dalam konteks aplikasi tertentu.\n\nPersyaratan:\n1. Pilih dan jelaskan skenario komunikasi yang akan disimulasikan.\n2. Implementasikan model simulasi berdasarkan skenario yang dipilih.\n3. Lakukan pengujian untuk mengukur kinerja dan efisiensi protokol yang diimplementasikan.\n4. Analisis hasil simulasi dan presentasikan temuan Anda dalam laporan atau presentasi.';
+                break;
+            default:
+                judulTugas = 'Tidak ada materi yang dipilih.';
+                deskripsiTugas = '';
+                break;
+        }
+
+        // Menyisipkan judul dan deskripsi ke dalam dokumen
+        var materiContent = document.getElementById('materi-content');
+        var heading = document.createElement('h2');
+        heading.textContent = judulTugas;
+        var deskripsi = document.createElement('p');
+        deskripsi.textContent = deskripsiTugas;
+
+        materiContent.appendChild(heading);
+        materiContent.appendChild(deskripsi);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <form id="login-form">
+            <h1>Log in</h1>
+            <div id="error-message" style="color: red; display: none;">Username atau Password salah</div>
+            <div class="logo-container">
+                <img src="images/Registro_Webinar_en_Directo_-_Pasos_para_crear_y_vender_cursos_online-removebg-preview.png" alt="Logo">
+            </div>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Log in</button>
+        </form>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html>
